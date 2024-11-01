@@ -9,16 +9,26 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Dice Roll Simulator</h1>
-    <div class="dice" id="dice">&#9860;</div>
-    Max value of Dice : <input type="text" id="num" name="num" value=6><br>
-    Max Number of Dices : <input type="text" id="numDices" name="numDices" value=300><br>
-    Current Number of Dices : <input type="text" id="currentNumDices" name="currentNumDices" value=300><br>
-    <button id="num-button">Reset</button>
-    <button id="roll-button">Roll Dice</button>
-    <div class="roll-list">
+    <div class="row">
+        <div class="column" >
+            <h1>Dice Roll Simulator</h1>
+        <div class="dice" id="dice">&#9860;</div>
+        Max value of Dice : <input type="text" id="num" name="num" value=6><br>
+        Max Number of Dices : <input type="text" id="numDices" name="numDices" value=300><br>
+        Current Number of Dices : <input type="text" id="currentNumDices" name="currentNumDices" value=300><br>
+        <button id="num-button">Reset</button>
+        <button id="roll-button">Roll Dice</button>
+        <div class="roll-list">
       <ul id="roll-history"></ul>
     </div>
+        </div>
+        <div class="column" >
+            <h2>Roll-History</h2>
+            <div class="roll-list">
+            <ul id="roll-history2"></ul>
+        </div>
+    </div>
+    
     
     <div class="footer">
       <p>Initial code by Abhishek Gurjar</p>
