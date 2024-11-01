@@ -77,4 +77,4 @@ buttonEl2.addEventListener("click", () => {
 
 buttonEl.addEventListener("click", () => {
   rollDice();
-});
+}); 
