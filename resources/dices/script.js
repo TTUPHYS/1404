@@ -12,8 +12,12 @@ let iniNumDices=document.getElementById("numDices").value;
 
 function rollDice() {
   let tot=currentNumDices.value;
+  
   let rollResult;
   historyList=[];
+  if(tot==0){
+    historyList.push("All your dices decayed...&#9762");
+  }
   for (let i = 0; i<currentNumDices.value;i++){
     rollResult = Math.floor(Math.random() * maxNum) + 1;
     if (rollResult==1){
@@ -27,8 +31,8 @@ function rollDice() {
   //const diceFace = getDiceFace(rollResult);
   //diceEl.innerHTML = diceFace;
   //historyList.push(tot);
-  iniNumDices=tot;
   currentNumDices.value=tot;
+  
   updateRollHistory();
 }
 
@@ -66,7 +70,7 @@ buttonEl2.addEventListener("click", () => {
   iniNumDices=document.getElementById("numDices").value;
   historyList = [];
   currentNumDices.value=iniNumDices;
-  diceEl.innerHTML = "&#9861;";
+  diceEl.innerHTML = "&#9860;";
   //historyList.push(maxNum);
   updateRollHistory();
 });
