@@ -22,7 +22,7 @@ function rollDice() {
   let rollResult;
   historyList=[];
   if(tot==0){
-    diceEl.innerHTML="All your dices decayed...&#9762";
+    diceEl.innerHTML="&#9762";
   }
   for (let i = 0; i<currentNumDices.value;i++){
     rollResult = Math.floor(Math.random() * maxNum) + 1;
@@ -94,7 +94,7 @@ buttonEl3.addEventListener("click", () => {
     for(let i=0;i<1000;i+=1){
         rollDice();
         if(currentNumDices.value==0){
-            diceEl.innerHTML="All your dices decayed...&#9762";
+            diceEl.innerHTML="&#9762";
             break;
         }
     }
