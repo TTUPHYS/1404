@@ -3,6 +3,7 @@ const buttonEl2 = document.getElementById("num-button");
 
 const diceEl = document.getElementById("dice");
 const rollHistoryEl = document.getElementById("roll-history");
+const currentDieEl = document.getElementById("currentNumDices");
 
 let historyList = [];
 let maxNum=document.getElementById("num").value;
@@ -10,22 +11,24 @@ let iniNumDices=document.getElementById("numDices").value;
 
 
 function rollDice() {
-  let tot=Math.floor(iniNumDices);
+  let tot=currentNumDices.value;
   let rollResult;
-  for (let i = 0; i<iniNumDices;i++){
+  historyList=[];
+  for (let i = 0; i<currentNumDices.value;i++){
     rollResult = Math.floor(Math.random() * maxNum) + 1;
     if (rollResult==1){
         tot--;
     }
     // historyList.push("tot"+tot);
-    // historyList.push("rollResult"+rollResult);
+    historyList.push(rollResult);
   }
-  historyList.push(tot);
+  //historyList.push(tot);
   //const rollResult = Math.floor(Math.random() * maxNum) + 1;
   //const diceFace = getDiceFace(rollResult);
   //diceEl.innerHTML = diceFace;
   //historyList.push(tot);
   iniNumDices=tot;
+  currentNumDices.value=tot;
   updateRollHistory();
 }
 
@@ -62,6 +65,7 @@ buttonEl2.addEventListener("click", () => {
   maxNum=document.getElementById("num").value;
   iniNumDices=document.getElementById("numDices").value;
   historyList = [];
+  currentNumDices.value=iniNumDices;
   diceEl.innerHTML = "&#9861;";
   //historyList.push(maxNum);
   updateRollHistory();
