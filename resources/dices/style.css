@@ -3,7 +3,9 @@ body {
     text-align: center;
     margin: 0;
   }
-  
+  table, th, td {
+  border:1px solid black;
+}
 .column {
     float: left;
     width: 50%;
