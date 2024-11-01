@@ -1,9 +1,10 @@
 const buttonEl = document.getElementById("roll-button");
 const buttonEl2 = document.getElementById("num-button");
+const buttonEl3 = document.getElementById("zero-button");
 
 const diceEl = document.getElementById("dice");
 const rollHistoryEl = document.getElementById("roll-history");
-const rollHistoryEl2 = document.getElementById("roll-history2");
+//const rollHistoryEl2 = document.getElementById("roll-history2");
 const currentDieEl = document.getElementById("currentNumDices");
 const x = document.getElementById("countTable");
 
@@ -47,24 +48,12 @@ let i = historyList2.length
     var cell2 = row.insertCell(1);
     cell1.innerHTML=i
     cell2.innerHTML=getDiceFace(historyList2[i-1])
-    // const listItem = document.createElement("li");
-    // listItem.innerHTML = `${i + 1}&nbsp&nbsp<span>${getDiceFace(historyList2[i])}</span>`;
-    rollHistoryEl2.appendChild(listItem);
-//   for (let i = 1; i <historyList2.length; i++) {
-//     var row = x.insertRow(i);
-//     var cell1 = row.insertCell(0);
-//     var cell2 = row.insertCell(1);
-//     cell1.innerHTML=i
-//     cell2.innerHTML=getDiceFace(historyList2[i-1])
-//     // const listItem = document.createElement("li");
-//     // listItem.innerHTML = `${i + 1}&nbsp&nbsp<span>${getDiceFace(historyList2[i])}</span>`;
-//     rollHistoryEl2.appendChild(listItem);
-//   }
+    //rollHistoryEl2.appendChild(listItem);
 }
 
 function updateRollHistory() {
   rollHistoryEl.innerHTML = "";
-  rollHistoryEl2.innerHTML = "";
+  //rollHistoryEl2.innerHTML = "";
   for (let i = historyList.length-1; i >=0; i--) {
     const listItem = document.createElement("li");
     listItem.innerHTML = `Roll ${i + 1}: <span>${getDiceFace(historyList[i])}</span>`;
@@ -93,6 +82,15 @@ function getDiceFace(rollResult) {
   }
 }
 
+buttonEl3.addEventListener("click", () => {
+    for(let i=0;i<1000;i+=1){
+        rollDice();
+        if(currentNumDices.value==0){
+            diceEl.innerHTML="All your dices decayed...&#9762";
+            break;
+        }
+    }
+});
 //reset
 buttonEl2.addEventListener("click", () => {
     let rowLen=x.rows.length;
@@ -114,7 +112,6 @@ buttonEl2.addEventListener("click", () => {
   diceEl.innerHTML = "&#9860;";
   //historyList.push(maxNum);
   updateRollHistory();
-  
 });
 
 buttonEl.addEventListener("click", () => {
