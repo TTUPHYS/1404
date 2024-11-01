@@ -12,6 +12,8 @@ let historyList = [];
 let historyList2 = [];
 let maxNum=document.getElementById("num").value;
 let iniNumDices=document.getElementById("numDices").value;
+let halfCount = iniNumDices/2;
+let halfCutBool = true;
 
 
 function rollDice() {
@@ -46,8 +48,14 @@ let i = historyList2.length
   var row = x.insertRow(i);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    cell1.innerHTML=i
-    cell2.innerHTML=getDiceFace(historyList2[i-1])
+      cell1.innerHTML=i;
+      cell2.innerHTML=getDiceFace(historyList2[i-1]);
+    if(currentNumDices.value<=halfCount && halfCutBool){
+      cell1.className = "color-red";
+      cell2.className = "color-red";
+      halfCutBool=false;
+    }
+
     //rollHistoryEl2.appendChild(listItem);
 }
 
@@ -111,6 +119,8 @@ buttonEl2.addEventListener("click", () => {
   currentNumDices.value=iniNumDices;
   diceEl.innerHTML = "&#9860;";
   //historyList.push(maxNum);
+   halfCount = iniNumDices/2;
+ halfCutBool = true;
   updateRollHistory();
 });
 
