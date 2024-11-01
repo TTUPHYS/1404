@@ -5,6 +5,7 @@ const diceEl = document.getElementById("dice");
 const rollHistoryEl = document.getElementById("roll-history");
 const rollHistoryEl2 = document.getElementById("roll-history2");
 const currentDieEl = document.getElementById("currentNumDices");
+const x = document.getElementById("countTable");
 
 let historyList = [];
 let historyList2 = [];
@@ -36,6 +37,29 @@ function rollDice() {
   currentNumDices.value=tot;
   
   updateRollHistory();
+addRow();
+}
+
+function addRow(){
+let i = historyList2.length
+  var row = x.insertRow(i);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML=i
+    cell2.innerHTML=getDiceFace(historyList2[i-1])
+    // const listItem = document.createElement("li");
+    // listItem.innerHTML = `${i + 1}&nbsp&nbsp<span>${getDiceFace(historyList2[i])}</span>`;
+    rollHistoryEl2.appendChild(listItem);
+//   for (let i = 1; i <historyList2.length; i++) {
+//     var row = x.insertRow(i);
+//     var cell1 = row.insertCell(0);
+//     var cell2 = row.insertCell(1);
+//     cell1.innerHTML=i
+//     cell2.innerHTML=getDiceFace(historyList2[i-1])
+//     // const listItem = document.createElement("li");
+//     // listItem.innerHTML = `${i + 1}&nbsp&nbsp<span>${getDiceFace(historyList2[i])}</span>`;
+//     rollHistoryEl2.appendChild(listItem);
+//   }
 }
 
 function updateRollHistory() {
@@ -46,11 +70,7 @@ function updateRollHistory() {
     listItem.innerHTML = `Roll ${i + 1}: <span>${getDiceFace(historyList[i])}</span>`;
     rollHistoryEl.appendChild(listItem);
   }
-  for (let i = 0; i <historyList2.length; i++) {
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `${i + 1}: <span>${getDiceFace(historyList2[i])}</span>`;
-    rollHistoryEl2.appendChild(listItem);
-  }
+  
 }
 
 function getDiceFace(rollResult) {
@@ -73,7 +93,19 @@ function getDiceFace(rollResult) {
   }
 }
 
+//reset
 buttonEl2.addEventListener("click", () => {
+    let rowLen=x.rows.length;
+    for (let i = 1; i <rowLen; i++) {
+        x.deleteRow(1);
+    }
+    // var row = x.insertRow(0);
+    // var cell1 = row.insertCell(0);
+    // var cell2 = row.insertCell(1);
+    // cell1.innerHTML='Time';
+    // cell2.innerHTML='Count';
+    
+
   maxNum=document.getElementById("num").value;
   iniNumDices=document.getElementById("numDices").value;
   historyList = [];
@@ -82,6 +114,7 @@ buttonEl2.addEventListener("click", () => {
   diceEl.innerHTML = "&#9860;";
   //historyList.push(maxNum);
   updateRollHistory();
+  
 });
 
 buttonEl.addEventListener("click", () => {
