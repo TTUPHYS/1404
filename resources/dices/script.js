@@ -3,9 +3,11 @@ const buttonEl2 = document.getElementById("num-button");
 
 const diceEl = document.getElementById("dice");
 const rollHistoryEl = document.getElementById("roll-history");
+const rollHistoryEl2 = document.getElementById("roll-history2");
 const currentDieEl = document.getElementById("currentNumDices");
 
 let historyList = [];
+let historyList2 = [];
 let maxNum=document.getElementById("num").value;
 let iniNumDices=document.getElementById("numDices").value;
 
@@ -30,7 +32,7 @@ function rollDice() {
   //const rollResult = Math.floor(Math.random() * maxNum) + 1;
   //const diceFace = getDiceFace(rollResult);
   //diceEl.innerHTML = diceFace;
-  //historyList.push(tot);
+  historyList2.push(tot);
   currentNumDices.value=tot;
   
   updateRollHistory();
@@ -38,10 +40,16 @@ function rollDice() {
 
 function updateRollHistory() {
   rollHistoryEl.innerHTML = "";
+  rollHistoryEl2.innerHTML = "";
   for (let i = historyList.length-1; i >=0; i--) {
     const listItem = document.createElement("li");
     listItem.innerHTML = `Roll ${i + 1}: <span>${getDiceFace(historyList[i])}</span>`;
     rollHistoryEl.appendChild(listItem);
+  }
+  for (let i = 0; i <historyList2.length; i++) {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `${i + 1}: <span>${getDiceFace(historyList2[i])}</span>`;
+    rollHistoryEl2.appendChild(listItem);
   }
 }
 
@@ -69,6 +77,7 @@ buttonEl2.addEventListener("click", () => {
   maxNum=document.getElementById("num").value;
   iniNumDices=document.getElementById("numDices").value;
   historyList = [];
+  historyList2 = [];
   currentNumDices.value=iniNumDices;
   diceEl.innerHTML = "&#9860;";
   //historyList.push(maxNum);
