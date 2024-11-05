@@ -48,7 +48,7 @@ let i = historyList2.length
   var row = x.insertRow(i);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-      cell1.innerHTML=i;
+      cell1.innerHTML=i-1;
       cell2.innerHTML=getDiceFace(historyList2[i-1]);
     if(currentNumDices.value<=halfCount && halfCutBool){
       cell1.className = "color-red";
@@ -115,7 +115,8 @@ buttonEl2.addEventListener("click", () => {
   maxNum=document.getElementById("num").value;
   iniNumDices=document.getElementById("numDices").value;
   historyList = [];
-  historyList2 = [];
+  historyList2 = [iniNumDices];
+  addRow();
   currentNumDices.value=iniNumDices;
   diceEl.innerHTML = "&#9860;";
   //historyList.push(maxNum);
