@@ -14,8 +14,8 @@
             <h1>Dice Roll Simulator</h1>
             A dice will decay when it lands with 1.
         <div class="dice" id="dice">&#9860;</div>
-        Number of sides of Dice : <input type="text" id="num" name="num" value=6><br>
-        Initial Number of Dices : <input type="text" id="numDices" name="numDices" value=300><br>
+        Max value of Dice : <input type="text" id="num" name="num" value=6><br>
+        Max Number of Dices : <input type="text" id="numDices" name="numDices" value=300><br>
         Current Number of Dices : <input type="text" id="currentNumDices" name="currentNumDices" value=300><br>
         <button id="num-button">Reset</button>
         <button id="roll-button">Roll Dice</button>
@@ -32,6 +32,10 @@
             <tr>
                 <td>Time</td>
                 <td>Count</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>300</td>
             </tr>
             </table>
             <div class="roll-list">
